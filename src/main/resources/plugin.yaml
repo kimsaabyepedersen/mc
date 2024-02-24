@@ -1,0 +1,6 @@
+name: Step 0
+version: 1.0.0
+main: org.saabye_pedersen.mc.Main
+author: Kim
+description: Step 0
+api-version: 1.17
