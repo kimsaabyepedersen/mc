@@ -5,18 +5,20 @@ import org.bukkit.entity.Sheep;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class SheepDamageByEntityEventHandler {
+    private final GameHandler gameHandler;
+
+    public SheepDamageByEntityEventHandler(GameHandler gameHandler) {
+        this.gameHandler = gameHandler;
+    }
+
     public void handle(Sheep sheep, EntityDamageByEntityEvent event) {
 
         if (sheep.getCustomName() != null && sheep.getCustomName().equals("Sheepdog sheep")) {
-            if(sheep.isDead()){
-                Player p = sheep.getKiller();
-                p.sendMessage("You killed a sheepdog sheep, bravo");
-            }else{
                 if(event.getDamager() instanceof Player){
-                    Player p = (Player) event.getDamager();
-                    p.sendMessage("You hit a sheepdog sheep");
-                }
+                    gameHandler.sheepHit((Player) event.getDamager(), sheep);
             }
         }
     }
+
+
 }

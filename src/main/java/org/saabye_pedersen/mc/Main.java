@@ -6,8 +6,9 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("onEnable is called!");
-        this.getCommand("sheepdog").setExecutor(new CommandHandler(new SheepSpawner()));
-        getServer().getPluginManager().registerEvents(new EventListener(new SheepDamageByEntityEventHandler()), this);
+        GameHandler gameHandler = new GameHandler(new SheepSpawner());
+        this.getCommand("sheepdog").setExecutor(new CommandHandler(gameHandler));
+        getServer().getPluginManager().registerEvents(new EventListener(new SheepDamageByEntityEventHandler(gameHandler)), this);
 
     }
     @Override

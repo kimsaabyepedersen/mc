@@ -9,11 +9,12 @@ import org.bukkit.entity.Sheep;
 public class SheepSpawner {
 
 
-    public void spawnSheep(World world, Location location){
+    public Sheep spawnSheep(World world, Location location){
         Sheep sheep = (Sheep) world.spawnEntity(location, EntityType.SHEEP);
         sheep.setColor(DyeColor.CYAN); // Set the sheep's color (replace RED with the desired color)
         sheep.setSheared(true);
         sheep.setCustomName("Sheepdog sheep");
+        return sheep;
     }
 
 }

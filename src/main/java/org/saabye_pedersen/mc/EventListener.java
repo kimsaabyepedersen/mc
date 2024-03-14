@@ -17,8 +17,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler
-    public void onSheepHit(EntityDamageByEntityEvent event) {
-
+    public void onEntityDamage(EntityDamageByEntityEvent event) {
         if (event.getEntityType() == EntityType.SHEEP) {
             sheepDamageByEntityEventHandler.handle((Sheep) event.getEntity(), event);
         }
